@@ -9,11 +9,11 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=GNU-MacOSX
 CND_ARTIFACT_DIR_Debug=dist/Debug/GNU-MacOSX
-CND_ARTIFACT_NAME_Debug=gaddis_8thed_ch4_prob5_bmi
-CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/gaddis_8thed_ch4_prob5_bmi
+CND_ARTIFACT_NAME_Debug=gaddis_8thed_ch4_prob8_colormixer
+CND_ARTIFACT_PATH_Debug=dist/Debug/GNU-MacOSX/gaddis_8thed_ch4_prob8_colormixer
 CND_PACKAGE_DIR_Debug=dist/Debug/GNU-MacOSX/package
-CND_PACKAGE_NAME_Debug=gaddis8thedch4prob5bmi.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/gaddis8thedch4prob5bmi.tar
+CND_PACKAGE_NAME_Debug=gaddis8thedch4prob8colormixer.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/GNU-MacOSX/package/gaddis8thedch4prob8colormixer.tar
 # Release configuration
 CND_PLATFORM_Release=Cygwin-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/Cygwin-Windows
