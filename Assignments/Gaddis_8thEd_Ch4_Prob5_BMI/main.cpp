@@ -20,8 +20,13 @@ using namespace std;
 //Program Execution Begins Here
 int main(int argc, char** argv) {
     //Declare all Variables Here
+<<<<<<< Updated upstream
     int weight,height;           //Height, weight and BMI of the user
     float BMI;                   //To hold the final calculation of users BMI
+=======
+    int weight,height;              //Height, weight and BMI of the user
+    int BMI;
+>>>>>>> Stashed changes
     
     //Input or initialize values Here
     cout<<"Please enter your height in inches"<<endl;
