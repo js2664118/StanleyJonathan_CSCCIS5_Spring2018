@@ -31,15 +31,11 @@ int main(int argc, char** argv) {
     //Process/Calculations Here
     cout<<setprecision(2)<<fixed<<showpoint<<endl;
     for (int count=1;count<=days;count++){
-        cout<<"You earned $"<<penny<<" on day "<<count<<endl;
+        cout<<"On day "<<count<<" you earned $"<<penny<<" with a Total= "<<total<<endl;
         penny*=2;
         total+=penny;
     }
-    cout<<"The total amount you made is $"<<total<<endl;
     
-    //Output Located Here
-    
-
     //Exit
     return 0;
 }
