@@ -75,8 +75,8 @@ int main(int argc, char** argv) {
             //Process/Calculations Here
     
             //Exit
-            return 0;
-        }
+            
+        }break;
         case 2:{
             //Declare all Variables Here
             int length,width,area;   //Length and width of the rectangle
@@ -89,8 +89,8 @@ int main(int argc, char** argv) {
             //Process/Calculations Here
     
             //Exit
-            return 0;
-        }
+            
+        }break;
         case 3:{
             //Declare all Variables Here
             string div1,div2,div3,div4; //Name of the division
@@ -113,8 +113,8 @@ int main(int argc, char** argv) {
             //Process/Calculations Here
             fdHghst(div1,div2,div3,div4,sales1,sales2,sales3,sales4);
             //Exit
-            return 0;
-        }
+            
+        }break;
         case 4:{
             //Declare all Variables Here
             string area1,area2,area3,area4,area5; //Name of the division
@@ -141,8 +141,8 @@ int main(int argc, char** argv) {
             fdLowst (area1,area2,area3,area4,area5,mis1,mis2,mis3,mis4,mis5);
     
             //Exit
-            return 0;
-        }
+            
+        }break;
         case 5:{
             //Declare all Variables Here
             int MAX=10; //Max number for the loop counter
@@ -156,8 +156,8 @@ int main(int argc, char** argv) {
                 cout<<"The distance fallen after "<<count<<" seconds is "<<dist<<" meters"<<endl;
             }
             //Exit
-            return 0;
-        }
+            
+        }break;
         case 6:{
             //Declare all Variables Here
             float mass,veloc; //Values for mass and velocity
@@ -173,8 +173,8 @@ int main(int argc, char** argv) {
             cout<<"The Kinetic Energy of the object is "<<energy<<" m/s^2"<<endl;
     
             //Exit
-            return 0;
-        }
+            
+        }break;
         case 7:{
             //Declare all Variables Here
             float temp;   //Value of the Fahrenheit temperature in Celsius
@@ -187,8 +187,8 @@ int main(int argc, char** argv) {
             }
     
             //Exit
-            return 0;
-        }
+            
+        }break;
         case 8:{
             //Declare all Variables Here
             srand(static_cast<unsigned int>(time(0)));
@@ -201,9 +201,8 @@ int main(int argc, char** argv) {
             for (int count=1;count<=toss;count++){
                 coinTos();
             }
-            //Exit
-            return 0;
-        }
+            
+        }break;
         case 9:{
             //Declare all Variables Here
             double F;  //Value of the future amount
@@ -226,9 +225,7 @@ int main(int argc, char** argv) {
                 cout<<"Would you like to try some different numbers? (y or n)";
                 cin>>choice;
             }while (choice=='y');
-            //Exit
-            return 0;
-        }
+        }break;
     }
     cout<<"Would you like to see another problem? (y or n)"<<endl;
     cin>>cont;
