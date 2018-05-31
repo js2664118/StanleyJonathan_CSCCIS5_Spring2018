@@ -21,6 +21,8 @@ using namespace std;
 //Like PI, e, Gravity, or conversions
 
 //Function Prototypes Here
+string getName();       //Function to get the name of the user
+void wrtFile();         //Function to write card values to a file/making deck
 
 //Program Execution Begins Here
 int main(int argc, char** argv) {
@@ -29,40 +31,37 @@ int main(int argc, char** argv) {
     //Declare all Variables Here
     int comp,player; //Keep the total of the players and computers hand
     string pname; //Name of the player
-    char hit;   //If the player wants to take another card or not
-    char cont; //If the player wants another hand
-    int pcard1,pcard2,ccard1,ccard2; //Value of the cards pulled for comp and player
-    int pscore,cscore; //holds the total score of hands
-    int newcard;    //Value of the new card
+    char hit;   //Choice the player wants to take another card or not
+    char cont; //Choice if the player wants another hand
+    int pcard1,pcard2,ccard1,ccard2; /*Value of the cards pulled 
+                                     for both comp and player*/
+    int pscore,cscore; //holds the total score of hands won
+    int newcard;    //Value of the new card for the user/player
     int newamt=0;     //Adds the value for the sum of new cards drawn
-    int Ace;    //User choice if they want they're ace to be a 1 or 11
+    int Ace;    //User choice if they want they're ace is to be a 1 or 11
     int firAce; //The first ace 
-    
-    //Shuffle the deck of cards
-    int random;             //Random number to shuffle the deck
-    ofstream deckFile;
-    deckFile.open("Deck.doc");
-    for(int count=1;count<=52;count++){        
-       random=rand()%10+1;
-       deckFile<<random<<endl;
-    }
-    deckFile.close();
+    const int SIZE=52;      //Size of the deck array
+    int deck[]={1,2,3,4,5,6,7,8,9,10,11,12,13,
+                1,2,3,4,5,6,7,8,9,10,11,12,13,
+                1,2,3,4,5,6,7,8,9,10,11,12,13,
+                1,2,3,4,5,6,7,8,9,10,11,12,13};          //The deck of cards
+    //Shuffle the deck and write to the file
+    wrtFile();
     //Open the file to read 
-    ifstream readfile;
-    readfile.open("Deck.doc");
+    ifstream rdfile;
+    rdfile.open("BlackjackDeck.doc");
     
     //Input and start game
     cout<<"This is blackjack between you and the computer(the dealer)"<<endl;
     cout<<"1=Ace,Jack,Queen,King==10"<<endl;
-    cout<<"Please enter your name ";
-    cin>>pname;
+    pname=getName();
     cout<<"The computer will now deal you two cards"<<endl;
     do{
         //Deal the cards to comp and player
-        readfile>>pcard1;
-        readfile>>pcard2;
-        readfile>>ccard1;
-        readfile>>ccard2;
+        rdfile>>pcard1;
+        rdfile>>pcard2;
+        rdfile>>ccard1;
+        rdfile>>ccard2;
         cout<<"Your cards are "<<pcard1<<setw(4)<<pcard2<<endl;
         cout<<"The dealers face up card is "<<ccard2<<endl;
         if (ccard1==1||ccard2==1){
@@ -175,4 +174,22 @@ int main(int argc, char** argv) {
     readfile.close();
     //Exit
     return 0;
+}
+string getName(){
+    //Get the name of the user
+    string name;        //Temporary variable to hold the users name
+    cout<<"What is your name ";
+    cin>>name;
+    return name;
+}
+void wrtFile(){
+    //Shuffle the deck of cards
+    int random;    //Random number to write to the file as the card number
+    ofstream dckFile;
+    dckFile.open("BlackjackDeck.doc");
+    for(int count=0;count<52;count++){        
+       random=rand()%10+1;
+       dckFile<<random<<endl;
+    }
+    dckFile.close();
 }
