@@ -24,7 +24,7 @@ using namespace std;
 string getName();       //Function to get the name of the user
 void wrtFile();         //Function to write card values to a file/making deck
 int newCard();         //Function to give new card to the player
-int getpSum(int,int[]);//Function to get the sum of the user hand
+int getpSum(int,const int[]);//Function to get the sum of the users hand
 
 //Program Execution Begins Here
 int main(int argc, char** argv) {
@@ -32,11 +32,12 @@ int main(int argc, char** argv) {
     srand(static_cast<unsigned int>(time(0)));
     
     //Declare all Variables Here
-    int comp=0,player=0; //Keep the total value of the both players hands
+    float comp=0;     //The total value of the computers cards
+    float player=0; //Keep the total value of the players cards   
     string pname; //Name of the player
     char cont; //Choice if the player wants another hand and continue playing
     int newcard;        //New card for the computer
-    int pscore,cscore; //holds the total score of hands won
+    int pscore=0,cscore=0; //holds the total score of hands won
     int Ace; //The ace in the users hand
     int temp;   //Temporary to add to the player/computer total hand
     const int SIZE=2;       //Size of the two arrays
@@ -44,13 +45,13 @@ int main(int argc, char** argv) {
     int chand[SIZE];        //Parallel array to hold the hand of the comp
     int push=0;               //How many times player and comp can push
     
-    //Shuffle the deck and write to the file
+    //Shuffle the deck and write to the file/ Go to wrtFile function
     wrtFile();
     
     //Open the file to read 
     ifstream rdfile;
     rdfile.open("BlackjackDeck.doc");   //Name of the document
-        
+    cout<<cscore<<" "<<pscore<<endl;    
     //Input and start game
     cout<<"This is blackjack between you and the computer(the dealer)"<<endl;
     cout<<"1=Ace,Jack,Queen,King==10"<<endl;
@@ -104,11 +105,11 @@ int main(int argc, char** argv) {
             Ace=1?player=11:player=1;
         }
         
-        //Ask the user if they want another card
+        //Ask the user if they want another card/ Go to function newCard
         temp=newCard();
         player+=temp;
         
-        //Sum up player cards
+        //Sum up player cards/ Go to function getpSum
         player=getpSum(player,phand);
         
         //Output results
@@ -167,7 +168,7 @@ int main(int argc, char** argv) {
    
     //Output total amount of hands won by the user and computer
     cout<<"You won "<<pscore<<" hands"<<endl;
-    cout<<"The computer won "<<cscore<<" hands, and pushed "<<push<<endl;
+    cout<<"The computer won "<<(static_cast<int>(cscore))<<" hands, and pushed "<<push<<endl;
     rdfile.close();
     
     //Exit
@@ -237,7 +238,7 @@ int newCard(){
     rdFile.close();
     return newamt;
 }
-int getpSum(int play,int hand[]){
+int getpSum(int play,const int hand[]){
     //Sum up player cards
         if (hand[0]==1||hand[1]==1){
             if (hand[0]==1){
