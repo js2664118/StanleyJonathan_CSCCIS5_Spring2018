@@ -32,12 +32,12 @@ int main(int argc, char** argv) {
     srand(static_cast<unsigned int>(time(0)));
     
     //Declare all Variables Here
-    float comp=0;     //The total value of the computers cards
-    float player=0; //Keep the total value of the players cards   
+    int comp=0;     //The total value of the computers cards
+    int player=0; //Keep the total value of the players cards   
     string pname; //Name of the player
     char cont; //Choice if the player wants another hand and continue playing
     int newcard;        //New card for the computer
-    int pscore=0,cscore=0; //holds the total score of hands won
+    float pscore=0,cscore=0; //holds the total score of hands won
     int Ace; //The ace in the users hand
     int temp;   //Temporary to add to the player/computer total hand
     const int SIZE=2;       //Size of the two arrays
@@ -50,11 +50,11 @@ int main(int argc, char** argv) {
     
     //Open the file to read 
     ifstream rdfile;
-    rdfile.open("BlackjackDeck.doc");   //Name of the document
-    cout<<cscore<<" "<<pscore<<endl;    
+    rdfile.open("BlackjackDeck.doc");   //Opening the document BlackjackDeck
+    
     //Input and start game
     cout<<"This is blackjack between you and the computer(the dealer)"<<endl;
-    cout<<"1=Ace,Jack,Queen,King==10"<<endl;
+    cout<<"Ace=1,Jack,Queen,King==10"<<endl;
     pname=getName();        //Go to Function getname
     cout<<"DEAL!"<<endl;        //Start the game
     cout<<endl;
@@ -161,13 +161,13 @@ int main(int argc, char** argv) {
         player=0;
         
         //Ask if the user wants another hand
-        cout<<"Would you like to play another hand? (y or n) ";
+        cout<<"Would you like to play another hand? (y/n) ";
         cin>>cont;
         cout<<"----------------------------------------------"<<endl;
-    }while (cont=='y');
+    }while (cont=='y'||cont=='Y');
    
     //Output total amount of hands won by the user and computer
-    cout<<"You won "<<pscore<<" hands"<<endl;
+    cout<<pname<<setw(2)<<pscore<<" hands"<<endl;
     cout<<"The computer won "<<(static_cast<int>(cscore))<<" hands, and pushed "<<push<<endl;
     rdfile.close();
     
@@ -197,14 +197,14 @@ void wrtFile(){
 int newCard(){
     int newcard;    //Value of the new card for the user
     char hit;   //Choice the player wants to take another card or not
-    ifstream rdFile;
+    ifstream rdFile;    //File input
     int Ace;        //Choice whether the user wants a 1 or 11
-    int newamt=0;   
+    int newamt=0;   //Return to main to add to sum of players cards
     rdFile.open("BlackjackDeck.doc");
     
     //Ask the user if they want another card
     do{
-        cout<<"Would you like to take another card? (y or n) ";
+        cout<<"Would you like to take another card? (y/n) ";
         cin>>hit;
         while(!(hit=='y')&&!(hit=='n')){
             cout<<"Enter either y or n: ";
@@ -233,7 +233,7 @@ int newCard(){
             else newamt+=newcard;
         }
         Ace=0;
-    }while (hit=='y');
+    }while (hit=='y'||hit=='Y');
     cout<<endl;
     rdFile.close();
     return newamt;
